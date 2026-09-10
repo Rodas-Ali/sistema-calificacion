@@ -21,6 +21,9 @@ const db = mysql.createPool({
     queueLimit: 0
 });
 
+const authRoutes = require("./auth")(db);
+app.use("/api/auth", authRoutes);
+
 // Ruta de prueba del servidor
 app.get("/", (req, res) => {
     res.json({
